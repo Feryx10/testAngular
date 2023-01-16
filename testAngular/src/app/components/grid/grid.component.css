@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 200px;
+    margin-bottom: 8px;
+  }
+
+.chart-card1 {
+    min-width: 80%;
+    margin-bottom: 8px;
+  }
+  .chart-card2 {
+    min-width: 600px;
+    margin-bottom: 8px;
+  }

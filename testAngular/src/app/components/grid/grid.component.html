@@ -1,0 +1,98 @@
+<mat-grid-list cols="4" rowHeight="300px"  [class.mat-elevation-z8]=true>    
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="2"
+        [style.background]="'grey'">   
+        <mat-selection-list #shoes [multiple]="false">
+            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                <button mat-mini-fab color="primary" (click)="burbuja()" aria-label="Example icon button with a menu icon">
+                    <mat-icon>donut_large</mat-icon>
+                </button>{{shoe}}
+            </mat-list-option>
+          </mat-selection-list>
+          
+          <p>
+            Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
+          </p>     
+        <mat-list>
+            <mat-list-item>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title-group>
+                            <mat-card-title>Burbuja</mat-card-title>
+                            <button mat-mini-fab color="primary" (click)="burbuja()" aria-label="Example icon button with a menu icon">
+                                <mat-icon>donut_large</mat-icon>
+                            </button>
+                        </mat-card-title-group>
+                    </mat-card-header>    
+                </mat-card>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title-group>
+                            <mat-card-title>Lineal</mat-card-title>
+                            <button mat-mini-fab color="primary" (click)="linea()" aria-label="Example icon button with a menu icon">
+                                <mat-icon>timeline</mat-icon>
+                            </button>
+                        </mat-card-title-group>
+                    </mat-card-header>    
+                </mat-card>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title-group>
+                            <mat-card-title>Barra</mat-card-title>
+                            <button mat-mini-fab color="primary" (click)="barra()" aria-label="Example icon button with a menu icon">
+                                <mat-icon>assessment</mat-icon>
+                            </button>
+                        </mat-card-title-group>
+                    </mat-card-header>    
+                </mat-card>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title-group>
+                            <mat-card-title>Circulo</mat-card-title>
+                            <button mat-mini-fab color="primary" (click)="circulo()" aria-label="Example icon button with a menu icon">
+                                <mat-icon>assessment</mat-icon>
+                            </button>
+                        </mat-card-title-group>
+                    </mat-card-header>    
+                </mat-card>
+            </mat-list-item>
+        </mat-list>              
+    </mat-grid-tile>   
+    <mat-grid-tile
+        [colspan]="3"
+        [rowspan]="2"
+        [style.background]="'grey'">
+    
+        <mat-card class="chart-card1" *ngIf="!isCube">
+            <canvas baseChart 
+                    [data]="salesData" 
+                    [type]="type"
+                    [options]="chartOptions"
+                >
+               </canvas>
+          </mat-card>
+          <mat-card class="chart-card2" *ngIf="isCube">
+            <canvas baseChart 
+                    [data]="salesData" 
+                    [type]="type"
+                    [options]="chartOptions"
+                >
+               </canvas>
+          </mat-card>
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+
+
+
+
+ 
