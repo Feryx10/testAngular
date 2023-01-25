@@ -1,10 +1,10 @@
-<mat-grid-list cols="4" rowHeight="300px"  [class.mat-elevation-z8]=true>    
+<mat-grid-list class="grid" cols="4" rowHeight="300px"  [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
     <mat-grid-tile
         [colspan]="1"
         [rowspan]="2"
-        [style.background]="'grey'">   
+        >   
         <mat-selection-list #shoes [multiple]="false" [(ngModel)]="selected">
-            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" (click)="select()">
+            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" (click)="changeChart(shoe.id)">
                 {{shoe.name}}
             </mat-list-option>
           </mat-selection-list>   
@@ -18,26 +18,20 @@
     <mat-grid-tile
         [colspan]="3"
         [rowspan]="2"
-        [style.background]="'gray'">
-        <mat-card-title>
-            {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'Linea'}}
-            </mat-card-title>    
-        <mat-card class="chart-card1" *ngIf="!isCube" [class.mat-elevation-z8]=true>
+        >        
             <canvas baseChart class="chart"
                     [data]="dataChart"
                     [type]="type"
                     [options]="chartOptions"
                 >
-               </canvas>
-          </mat-card>
-          <mat-card class="chart-card2" *ngIf="isCube" [class.mat-elevation-z8]=true>
-            <canvas baseChart 
+            </canvas>       
+          
+            <canvas baseChart class ="chart"
                     [data]="dataChart" 
                     [type]="type"
                     [options]="chartOptions"
                 >
-               </canvas>
-          </mat-card>
+            </canvas>          
     </mat-grid-tile>
 </mat-grid-list>
 

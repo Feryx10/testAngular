@@ -18,7 +18,7 @@ export interface Tile {
 
 export class GridComponent{  
   @ViewChild(BaseChartDirective)
-  public chart: BaseChartDirective= new BaseChartDirective();
+  public chart!: BaseChartDirective;
 
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 2, color: 'grey'},
@@ -98,7 +98,6 @@ export class GridComponent{
       case 0: { 
         this.dataChart.labels = this.temperaturaData[0];
         this.dataChart.datasets = this.temperaturaData[1];
-        this.chart.chart.update();
         break; 
       } 
       case 1: { 
@@ -109,7 +108,6 @@ export class GridComponent{
       case 2: { 
         this.dataChart.labels = this.velVientoData[0];
         this.dataChart.datasets = this.velVientoData[1];
-        this.select();
         break; 
       } 
       default: {        
@@ -118,43 +116,12 @@ export class GridComponent{
    } 
   }
 
-
-  select(){
-    switch(this.selected[0].id) {
-      case 0: {
-        this.type = "line";
-        this.isCube = false;
-        break;
-      }
-      case 1: {
-        this.type = "bar";
-        this.isCube = false;
-        break;
-      }
-      case 2: {
-        this.type = "radar";
-        this.isCube = false;
-        break;
-      }
-      case 3: {
-        this.type = "doughnut";
-        this.isCube = true;
-        break;
-      }
-      case 4: {
-        this.type = "pie";
-        this.isCube = true;
-        break;
-      }
-      case 5: {
-        this.type = "polarArea";
-        this.isCube = true;
-        break;
-      }
-      default: {        
-        break; 
-      } 
-    }
+  changeChart(type:ChartType){
+    this.type = type;
+    if (type=="polarArea" || type=="doughnut" || type=="pie" || type=="radar")
+      this.isCube = true;
+    else
+      this.isCube = false;    
   }
 
   typesOfSensors: {name: string, id: number}[] = [
@@ -163,13 +130,13 @@ export class GridComponent{
     {name:'Vel.Viento',id:2},
     {name:'a)',id:3}
   ];
-  typesOfShoes: {name: string, id: number}[] = [
-      {name:'Linea',id:0}, 
-      {name:'Barra',id:1}, 
-      {name:'Rosquilla',id:2}, 
-      {name:'Radar',id:3},
-      {name:'Pie',id:4}, 
-      {name:'Area Polar',id:5},
+  typesOfShoes: {name: string, id: ChartType}[] = [
+      {name:'Linea',id:"line"}, 
+      {name:'Barra',id:"bar"}, 
+      {name:'Rosquilla',id:"radar"}, 
+      {name:'Radar',id:"doughnut"},
+      {name:'Pie',id:"pie"}, 
+      {name:'Area Polar',id:"polarArea"},
   ];
 
 

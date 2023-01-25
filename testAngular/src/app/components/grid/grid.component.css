@@ -19,3 +19,18 @@
     margin-top: 5px;
     margin-left: 5px;
   }
+
+  .chart{
+    position: absolute;
+    max-width: 100%;
+    max-height: 95%;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+  }
