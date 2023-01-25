@@ -33,9 +33,12 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #1669ad70;
+    background: url('https://media.licdn.com/dms/image/C4D1BAQEwSyfuTECipg/company-background_10000/0/1543011865278?e=1674507600&v=beta&t=HlDLtDBXKOtpb5LY0cuE9y1nowPZliJYyBsxJHWBprE') no-repeat center;
+    background-size: cover;
     color: white;
     font-weight: 600;
+    opacity: 0.8;
   }
 
   .toolbar img {
@@ -242,6 +245,9 @@
     margin-left: 4px;
     font-weight: 600;
   }
+  .Logo{
+    box-shadow: 2px 2px 70px rgb(189, 189, 189);
+  }
 
   .github-star-badge:hover {
     background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
@@ -291,21 +297,24 @@
       visibility: hidden;
     }
   }
+
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner" >
   <img
     width="100"
-    alt="Logo"
+    class="Logo"
     src="https://media-exp1.licdn.com/dms/image/C4D0BAQFpu3b5yRj0KQ/company-logo_200_200/0/1543010670267?e=2147483647&v=beta&t=JR51tFj99yj8y7jWDI4CSFv_LhD6F9hnMSjJ9djvQVU"
   />
 
-  <span>Welcome</span>
+  <span style="text-shadow: 0 0 50px rgb(197, 197, 197);">MasterPlant</span>
 </div>
 
 <div class="content" role="main">
  
 </div>
 <app-grid></app-grid>
+
+
 <router-outlet></router-outlet>

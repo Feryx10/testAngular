@@ -1,0 +1,28 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header class="panel-header">
+      <mat-panel-title>
+       <div> Muestra {{data[0].value}}: {{data[1].value}} {{data[2].value}}</div>
+      </mat-panel-title>
+      <mat-panel-description *ngFor="let item of data; index as i;">        
+          
+            {{data[i].value}}      
+          
+      </mat-panel-description>
+    </mat-expansion-panel-header>  
+    
+    <mat-grid-list cols="5" rowHeight="3:2">
+      <mat-grid-tile>
+          <mat-card>
+              <app-radial></app-radial>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card class="mat-elevation-z8">
+              <app-radial></app-radial>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile>5</mat-grid-tile>
+    </mat-grid-list>
+  </mat-expansion-panel>

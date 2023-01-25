@@ -4,10 +4,18 @@
   }
 
 .chart-card1 {
-    min-width: 80%;
+    min-width: 70%;
     margin-bottom: 8px;
+    background-color: rgb(218, 218, 218);
   }
   .chart-card2 {
-    min-width: 600px;
+    min-width: 40%;
     margin-bottom: 8px;
+    background-color:rgb(218, 218, 218);
+  }
+
+  .icon{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5px;
   }

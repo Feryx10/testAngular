@@ -3,92 +3,48 @@
         [colspan]="1"
         [rowspan]="2"
         [style.background]="'grey'">   
-        <mat-selection-list #shoes [multiple]="false">
-            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-                <button mat-mini-fab color="primary" (click)="burbuja()" aria-label="Example icon button with a menu icon">
-                    <mat-icon>donut_large</mat-icon>
-                </button>{{shoe}}
+        <mat-selection-list #shoes [multiple]="false" [(ngModel)]="selected">
+            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" (click)="select()">
+                {{shoe.name}}
             </mat-list-option>
-          </mat-selection-list>
-          
-          <p>
-            Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
-          </p>     
-        <mat-list>
-            <mat-list-item>
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <mat-card-title-group>
-                            <mat-card-title>Burbuja</mat-card-title>
-                            <button mat-mini-fab color="primary" (click)="burbuja()" aria-label="Example icon button with a menu icon">
-                                <mat-icon>donut_large</mat-icon>
-                            </button>
-                        </mat-card-title-group>
-                    </mat-card-header>    
-                </mat-card>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <mat-card-title-group>
-                            <mat-card-title>Lineal</mat-card-title>
-                            <button mat-mini-fab color="primary" (click)="linea()" aria-label="Example icon button with a menu icon">
-                                <mat-icon>timeline</mat-icon>
-                            </button>
-                        </mat-card-title-group>
-                    </mat-card-header>    
-                </mat-card>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <mat-card-title-group>
-                            <mat-card-title>Barra</mat-card-title>
-                            <button mat-mini-fab color="primary" (click)="barra()" aria-label="Example icon button with a menu icon">
-                                <mat-icon>assessment</mat-icon>
-                            </button>
-                        </mat-card-title-group>
-                    </mat-card-header>    
-                </mat-card>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <mat-card-title-group>
-                            <mat-card-title>Circulo</mat-card-title>
-                            <button mat-mini-fab color="primary" (click)="circulo()" aria-label="Example icon button with a menu icon">
-                                <mat-icon>assessment</mat-icon>
-                            </button>
-                        </mat-card-title-group>
-                    </mat-card-header>    
-                </mat-card>
-            </mat-list-item>
-        </mat-list>              
+          </mat-selection-list>   
+          <mat-selection-list #sensors [multiple]="false" [(ngModel)]="selectedSensor">
+            <mat-list-option *ngFor="let sensor of typesOfSensors" [value]="sensor" (click)="selectSensor()">
+                {{sensor.name}}
+            </mat-list-option>
+          </mat-selection-list>    
+               
     </mat-grid-tile>   
     <mat-grid-tile
         [colspan]="3"
         [rowspan]="2"
-        [style.background]="'grey'">
-    
-        <mat-card class="chart-card1" *ngIf="!isCube">
-            <canvas baseChart 
-                    [data]="salesData" 
+        [style.background]="'gray'">
+        <mat-card-title>
+            {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'Linea'}}
+            </mat-card-title>    
+        <mat-card class="chart-card1" *ngIf="!isCube" [class.mat-elevation-z8]=true>
+            <canvas baseChart class="chart"
+                    [data]="dataChart"
                     [type]="type"
                     [options]="chartOptions"
                 >
                </canvas>
           </mat-card>
-          <mat-card class="chart-card2" *ngIf="isCube">
+          <mat-card class="chart-card2" *ngIf="isCube" [class.mat-elevation-z8]=true>
             <canvas baseChart 
-                    [data]="salesData" 
+                    [data]="dataChart" 
                     [type]="type"
                     [options]="chartOptions"
                 >
                </canvas>
           </mat-card>
-
     </mat-grid-tile>
 </mat-grid-list>
+
+<app-barra></app-barra>
+
+<app-tupla></app-tupla>
+
 
 
 
