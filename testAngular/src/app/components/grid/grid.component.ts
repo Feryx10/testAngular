@@ -125,10 +125,11 @@ export class GridComponent{
   }
 
   typesOfSensors: {name: string, id: number}[] = [
-    {name:'Temperatura',id:0},
-    {name:'Humedad',id:1},
-    {name:'Vel.Viento',id:2},
-    {name:'a)',id:3}
+    {name:'General',id:0},
+    {name:'Temperatura',id:1},
+    {name:'Humedad',id:2},
+    {name:'Vel.Viento',id:3},
+    {name:'a)',id:4}
   ];
   typesOfShoes: {name: string, id: ChartType}[] = [
       {name:'Linea',id:"line"}, 
@@ -138,6 +139,14 @@ export class GridComponent{
       {name:'Pie',id:"pie"}, 
       {name:'Area Polar',id:"polarArea"},
   ];
+  data:any[] = [
+    {name:'Muestra',value: 836},
+    {name:'Fecha', value: '2021-01-01'},
+    {name:'Hora', value: '00:00:00'},
+    {name: 'Temperatura', value: 100},
+    {name: 'Humedad', value: 10},
+    {name: 'Vel.Viento', value: 33},
+    {name: 'Dir.Viento', value: "20° Norte"},]
 
 
   graficas: Grafica[] = [

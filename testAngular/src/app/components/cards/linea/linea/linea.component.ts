@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
 import { Grafica } from 'src/app/Interfaces/grafica';
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-linea',
@@ -42,13 +36,7 @@ export class LineaComponent {
     valor_min_grafico: 0,
     valor_max_grafico: 100,
     intervalo: 10},
+    {nombre_cultivo:"Lechuga",valor_max_grafico:400,valor_min_grafico:300,nombre_sensor:"S02",valor_maximo:500,valor_minimo:0,peso_actual:3,temperatura:21.204,humedad:60.059,intervalo:50},
   ];
-  tiles: Tile[] = [    
-      {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-      {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-      {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-      {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-    ];
-  
 
 }

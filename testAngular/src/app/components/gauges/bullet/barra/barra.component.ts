@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input} from '@angular/core';
 import { IgxBulletGraphComponent } from "igniteui-angular-gauges";
 
 @Component({
@@ -9,5 +9,7 @@ import { IgxBulletGraphComponent } from "igniteui-angular-gauges";
 export class BarraComponent {
   @ViewChild("bulletGraph", { static: true })
   public bulletGraph!: IgxBulletGraphComponent;
+
+  @Input() data: any[] = [];
 
 }

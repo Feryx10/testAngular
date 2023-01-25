@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { IgxBulletGraphModule } from 'igniteui-angular-gauges';
 import { BarraComponent } from './components/gauges/bullet/barra/barra.component';
 import { LineaComponent } from './components/cards/linea/linea/linea.component';
+import { CardsComponent } from './components/gauges/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LineaComponent } from './components/cards/linea/linea/linea.component';
     TuplaComponent,
     BarraComponent,
     LineaComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
