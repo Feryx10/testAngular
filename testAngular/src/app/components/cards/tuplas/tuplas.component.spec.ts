@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineaComponent } from './linea.component';
+import { TuplasComponent } from './tuplas.component';
 
-describe('LineaComponent', () => {
-  let component: LineaComponent;
-  let fixture: ComponentFixture<LineaComponent>;
+describe('TuplasComponent', () => {
+  let component: TuplasComponent;
+  let fixture: ComponentFixture<TuplasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LineaComponent ]
+      declarations: [ TuplasComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LineaComponent);
+    fixture = TestBed.createComponent(TuplasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

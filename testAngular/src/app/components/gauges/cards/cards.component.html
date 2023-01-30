@@ -1,7 +1,11 @@
-<div class="row">
-    <div class="col-6 card-data">
-<mat-card class="card" *ngFor="let item of data  | slice:1; index as i;">
-    <app-barra [data]=data[i]></app-barra>
-</mat-card>
+<div class="row" layout="row" flex>
+    <div class="col-6 card-data" layout-xs="row" flex [class.mat-elevation-z20]=true > 
+        <mat-card class="card" *ngFor="let item of data; index as i;">
+        
+            {{item.nombre_cultivo}}
+            <app-radial></app-radial>
+    
+       
+        </mat-card>
     </div>
 </div>

@@ -1,18 +1,32 @@
-<igx-radial-gauge height="250px" width="250px"
-value="25"
-interval="10"
-minimumValue="0"
-maximumValue="100">
-    <igx-radial-gauge-range startValue="0"
-                            endValue="30"
-                            brush="red">
-    </igx-radial-gauge-range>
-    <igx-radial-gauge-range startValue="30"
-                            endValue="60"
-                            brush="yellow">
-    </igx-radial-gauge-range>
-    <igx-radial-gauge-range startValue="60"
-                            endValue="100"
-                            brush="green">
-    </igx-radial-gauge-range>
-</igx-radial-gauge>
+<div class="card ">
+    <div class="card-body">
+      <h4 class="card-header text-center">{{grafica.nombre_cultivo| titlecase}} &nbsp;{{grafica.nombre_sensor | uppercase}}</h4>
+      <!-- aqui deberia ir el componente grafica -->
+      <igx-radial-gauge
+        height="250px"
+        width="250px"
+        [value]="grafica.peso_actual"
+        [interval]="grafica.intervalo"
+        [minimumValue]="grafica.valor_minimo"
+        [maximumValue]="grafica.valor_maximo">
+        <igx-radial-gauge-range [startValue]="grafica.valor_minimo"
+                                [endValue]="grafica.valor_min_grafico"
+                                brush="red">
+        </igx-radial-gauge-range>
+        <igx-radial-gauge-range [startValue]="grafica.valor_min_grafico"
+                                [endValue]="grafica.valor_max_grafico"
+                                brush="green">
+        </igx-radial-gauge-range>
+        <igx-radial-gauge-range [startValue]="grafica.valor_max_grafico"
+                                [endValue]="grafica.valor_maximo"
+                                brush="yellow">
+        </igx-radial-gauge-range>
+      </igx-radial-gauge>
+      <!-- aqui termina el componente grafica -->
+      <p class="card-text text-center" style="font-weight: bold">Peso Actual: {{grafica.peso_actual}} gramos.</p>
+      <p class="card-text text-left">Otros Valores</p>
+      <small>Temperatura Actual: &nbsp; {{ grafica.temperatura }} ºc </small>
+      <br>
+      <small>Humedad Actual Actual: &nbsp; {{grafica.humedad}} % </small>
+    </div>
+  </div>

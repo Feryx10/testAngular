@@ -1,0 +1,29 @@
+<div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div>
+  <mat-accordion class="example-headers-align" multi>
+    
+  <mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Muestras
+      </mat-panel-title>
+      <mat-panel-description *ngFor="let items of data[0]; index as i;">
+        {{items.name}}      
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+
+    <mat-expansion-panel *ngFor="let item of data; index as i;" [class.mat-elevation-z19]=true>
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          Muestra 
+          {{item[0].sample}}  
+        </mat-panel-title>
+        <mat-panel-description *ngFor="let samples of item;">            
+          {{samples.value}}             
+        </mat-panel-description>
+      </mat-expansion-panel-header>  
+    </mat-expansion-panel>
+  </mat-accordion>

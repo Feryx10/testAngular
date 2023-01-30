@@ -1,4 +1,4 @@
-<mat-grid-list class="grid" cols="4" rowHeight="300px"  [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
+<mat-grid-list [cols]="breakpoint" class="grid" rowHeight="300px" [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
     <mat-grid-tile
         [colspan]="1"
         [rowspan]="2"
@@ -35,20 +35,8 @@
     </mat-grid-tile>
 </mat-grid-list>
 
-<div class="row">
-    <div class="col col-6">
-    <app-cards [data]="data"></app-cards>
-    </div>
-</div>
- 
-  
+<app-cards [data]="graficas"></app-cards>
 
-<app-tupla></app-tupla>
-
-
-
-
-
-
+<app-tuplas [data]="data"></app-tuplas>
 
  
