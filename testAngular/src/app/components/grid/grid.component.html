@@ -1,15 +1,15 @@
-<mat-grid-list [cols]="breakpoint" class="grid" rowHeight="300px" [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
+<mat-grid-list [cols]="4" class="grid" rowHeight="300px" [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
     <mat-grid-tile
         [colspan]="1"
         [rowspan]="2"
         >   
-        <mat-selection-list #shoes [multiple]="false" [(ngModel)]="selected">
-            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" (click)="changeChart(shoe.id)">
-                {{shoe.name}}
+        <mat-selection-list #charts [multiple]="false" [(ngModel)]="selectedChart">
+            <mat-list-option *ngFor="let chart of typesOfCharts" [value]="chart" (click)="changeChart(chart.id)">
+                {{chart.name}}
             </mat-list-option>
           </mat-selection-list>   
           <mat-selection-list #sensors [multiple]="false" [(ngModel)]="selectedSensor">
-            <mat-list-option *ngFor="let sensor of typesOfSensors" [value]="sensor" (click)="selectSensor()">
+            <mat-list-option *ngFor="let sensor of typesOfSensors" [value]="sensor" (click)="changeSensor()">
                 {{sensor.name}}
             </mat-list-option>
           </mat-selection-list>    
@@ -18,14 +18,7 @@
     <mat-grid-tile
         [colspan]="3"
         [rowspan]="2"
-        >        
-            <canvas baseChart class="chart"
-                    [data]="dataChart"
-                    [type]="type"
-                    [options]="chartOptions"
-                >
-            </canvas>       
-          
+        >                  
             <canvas baseChart class ="chart"
                     [data]="dataChart" 
                     [type]="type"
@@ -38,5 +31,7 @@
 <app-cards [data]="graficas"></app-cards>
 
 <app-tuplas [data]="data"></app-tuplas>
+
+<app-test-chart></app-test-chart>
 
  

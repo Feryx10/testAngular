@@ -4,7 +4,7 @@
   </div>
   <mat-accordion class="example-headers-align" multi>
     
-  <mat-expansion-panel disabled>
+  <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Muestras
@@ -16,10 +16,10 @@
   </mat-expansion-panel>
 
     <mat-expansion-panel *ngFor="let item of data; index as i;" [class.mat-elevation-z19]=true>
-      <mat-expansion-panel-header >
+      <mat-expansion-panel-header [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
         <mat-panel-title>
-          Muestra 
-          {{item[0].sample}}  
+          Muestra {{item[0].sample}}:
+          {{item[0].date}} {{item[0].time}}
         </mat-panel-title>
         <mat-panel-description *ngFor="let samples of item;">            
           {{samples.value}}             

@@ -24,6 +24,7 @@ import { IgxBulletGraphModule } from 'igniteui-angular-gauges';
 import { BarraComponent } from './components/gauges/bullet/barra/barra.component';
 import { CardsComponent } from './components/gauges/cards/cards.component';
 import { TuplasComponent } from './components/cards/tuplas/tuplas.component';
+import { TestChartComponent } from './components/test-chart/test-chart.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TuplasComponent } from './components/cards/tuplas/tuplas.component';
     RadialComponent,
     BarraComponent,
     CardsComponent,
-    TuplasComponent
+    TuplasComponent,
+    TestChartComponent
   ],
   imports: [
     BrowserModule,
