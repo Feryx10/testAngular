@@ -1,29 +1,27 @@
-<div class="example-action-buttons">
-    <button mat-button (click)="accordion.openAll()">Expand All</button>
-    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
-  </div>
-  <mat-accordion class="example-headers-align" multi>
-    
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Muestras
-      </mat-panel-title>
-      <mat-panel-description *ngFor="let items of data[0]; index as i;">
-        {{items.name}}      
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-  </mat-expansion-panel>
+<mat-tab-group class="selection" (selectedTabChange)="change($event)" >
+  <mat-tab *ngFor="let sensor of sensorList;let index = index" (click)="changeSensor(sensor)" label={{sensor}}></mat-tab>
+</mat-tab-group>
 
-    <mat-expansion-panel *ngFor="let item of data; index as i;" [class.mat-elevation-z19]=true>
-      <mat-expansion-panel-header [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
-        <mat-panel-title>
-          Muestra {{item[0].sample}}:
-          {{item[0].date}} {{item[0].time}}
-        </mat-panel-title>
-        <mat-panel-description *ngFor="let samples of item;">            
-          {{samples.value}}             
-        </mat-panel-description>
-      </mat-expansion-panel-header>  
-    </mat-expansion-panel>
-  </mat-accordion>
+<section class="example-container mat-elevation-z15" tabindex="0">
+  <table mat-table [dataSource]="historyOfSensor">
+    <!-- Data -->
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns" >
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
+
+<ng-template #mostrar>
+
+  <div class="container">
+
+        <h2 class="alert-heading text-center">¡No hay gráficas activas!</h2>
+
+  </div>
+
+</ng-template>

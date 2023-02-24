@@ -1,37 +1,40 @@
-<mat-grid-list [cols]="4" class="grid" rowHeight="300px" [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">    
+<mat-grid-list [cols]="4" class="grid" rowHeight="300px" [class.mat-elevation-z8]=true [style.background]="'DarkSeaGreen'">
     <mat-grid-tile
         [colspan]="1"
         [rowspan]="2"
-        >   
+        >
         <mat-selection-list #charts [multiple]="false" [(ngModel)]="selectedChart">
             <mat-list-option *ngFor="let chart of typesOfCharts" [value]="chart" (click)="changeChart(chart.id)">
-                {{chart.name}}
+                {{chart.nombre}}
             </mat-list-option>
-          </mat-selection-list>   
+          </mat-selection-list>
           <mat-selection-list #sensors [multiple]="false" [(ngModel)]="selectedSensor">
             <mat-list-option *ngFor="let sensor of typesOfSensors" [value]="sensor" (click)="changeSensor()">
-                {{sensor.name}}
+                {{sensor.nombre}}
             </mat-list-option>
-          </mat-selection-list>    
-               
-    </mat-grid-tile>   
+          </mat-selection-list>
+
+    </mat-grid-tile>
     <mat-grid-tile
         [colspan]="3"
         [rowspan]="2"
-        >                  
+        >
             <canvas baseChart class ="chart"
-                    [data]="dataChart" 
+                    [data]="dataChart"
                     [type]="type"
                     [options]="chartOptions"
                 >
-            </canvas>          
+            </canvas>
     </mat-grid-tile>
 </mat-grid-list>
 
 <app-cards [data]="graficas"></app-cards>
 
-<app-tuplas [data]="data"></app-tuplas>
+<app-tuplas [data]="data2"></app-tuplas>
 
-<app-test-chart></app-test-chart>
 
- 
+<app-event-stream></app-event-stream>
+
+
+
+

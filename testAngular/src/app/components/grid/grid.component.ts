@@ -16,7 +16,7 @@ export interface Tile {
   styleUrls: ['./grid.component.css'],
 })
 
-export class GridComponent{  
+export class GridComponent{
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
   dataChart: ChartData<'bar'> = {
@@ -37,7 +37,7 @@ export class GridComponent{
       { label: 'Sector C', data: [30, 30, 31, 31, 32] },
       { label: 'Sector D', data: [30, 30, 31, 31, 32] },
     ],
-  ];  
+  ];
   humedadData: any[] = [
     ['15:00', '15:15', '15:30', '15:45', '18:00'],
     [
@@ -46,7 +46,7 @@ export class GridComponent{
       { label: 'AC', data: [500, 400, 350, 450, 650] },
       { label: 'Headset', data: [1200, 1500, 1020, 1600, 900] },
     ],
-  ];  
+  ];
   velVientoData: any[] = [
     ['15:00', '15:15', '15:30', '15:45', '16:00'],
     [
@@ -55,12 +55,12 @@ export class GridComponent{
       { label: 'Sector C', data: [25, 30, 20, 33, 42] },
       { label: 'Sector D', data: [25, 30, 20, 33, 42] },
     ],
-  ];  
+  ];
 
   ngOnInit(): void {
-   
+
     for(let i=1;i<this.data[0].length;i++){
-      this.typesOfSensors.push({name:this.data[0][i].name,id:i});
+      this.typesOfSensors.push({nombre:this.data[0][i].nombre,id:i});
     }
   }
 
@@ -78,13 +78,13 @@ export class GridComponent{
   };
 
   public type:ChartType = "bar";
-  selectedChart=[{name:'Linea',id:0}];
-  selectedSensor=[{name:'Temperatura',id:0}];
+  selectedChart=[{nombre:'Linea',id:0}];
+  selectedSensor=[{nombre:'Temperatura',id:0}];
 
   labelsGenerator(number: number) {
     switch(number){
       case 0:{
-        return      
+        return
       };
       case 1:{
 
@@ -94,32 +94,32 @@ export class GridComponent{
   }
 
 
-  
+
 
   changeSensor(){
-    switch(this.selectedSensor[0].id) { 
-      case 0: { 
+    switch(this.selectedSensor[0].id) {
+      case 0: {
         this.dataChart.labels = this.temperaturaData[0];
         for(let i=0;i<this.data[0].length;i++){
-          if(this.data[0].name == "Temperatura")this.temperaturaData[1][i];
+          if(this.data[0].nombre == "Temperatura")this.temperaturaData[1][i];
         }
         this.dataChart.datasets = this.temperaturaData[1];
-        break; 
-      } 
-      case 3: { 
+        break;
+      }
+      case 3: {
         this.dataChart.labels = this.humedadData[0];
         this.dataChart.datasets = this.humedadData[1];
-        break; 
-      } 
-      case 2: { 
+        break;
+      }
+      case 2: {
         this.dataChart.labels = this.velVientoData[0];
         this.dataChart.datasets = this.velVientoData[1];
-        break; 
-      } 
-      default: {        
-        break; 
-      } 
-   } 
+        break;
+      }
+      default: {
+        break;
+      }
+   }
    this.chart?.update();
   }
 
@@ -127,82 +127,146 @@ export class GridComponent{
     this.type = type;
   }
 
-  
-  typesOfCharts: {name: string, id: ChartType}[] = [
-    {name:'Linea',id:"line"}, 
-    {name:'Barra',id:"bar"}, 
-    {name:'Rosquilla',id:"radar"}, 
-    {name:'Radar',id:"doughnut"},
-    {name:'Pie',id:"pie"}, 
-    {name:'Area Polar',id:"polarArea"},
-  ];
-  
-  timeSet: {name: string, id: number}[] = [
-    {name:'Cada 15 min',id:0}, 
-    {name:'Cada 1 hora',id:1}, 
-    {name:'Cada 24 horas',id:2}, 
-    {name:'Cada mes',id:3},
+
+  typesOfCharts: {nombre: string, id: ChartType}[] = [
+    {nombre:'Linea',id:"line"},
+    {nombre:'Barra',id:"bar"},
+    {nombre:'Rosquilla',id:"radar"},
+    {nombre:'Radar',id:"doughnut"},
+    {nombre:'Pie',id:"pie"},
+    {nombre:'Area Polar',id:"polarArea"},
   ];
 
-
-
-  typesOfSensors: {name: string, id: number}[] = [
-    {name:'General',id:0},    
+  timeSet: {nombre: string, id: number}[] = [
+    {nombre:'Cada 15 min',id:0},
+    {nombre:'Cada 1 hora',id:1},
+    {nombre:'Cada 24 horas',id:2},
+    {nombre:'Cada mes',id:3},
   ];
 
-  
 
+
+  typesOfSensors: {nombre: string, id: number}[] = [
+    {nombre:'General',id:0},
+  ];
+
+
+  dato: any[] = [{nombre_cultivo:"Lechuga",valor_max_grafico:400,valor_min_grafico:300,nombre_sensor:"S02",valor_maximo:500,valor_minimo:0,peso_actual:3,temperatura:21.204,humedad:60.059,intervalo:50},];
+
+
+  data2: any[] = [
+    {
+      "_id": "sensorS01:nave01-cultivo001-695e246308103388fcd9cc43790044ed",
+      "_rev": "1-a5f5db5098848badecbe67c86bf22fdf",
+      "nombre_cultivo": "Lechuga",
+      "nombre_sensor": "S01",
+      "year": "2013",
+      "month": "01",
+      "day": "01",
+      "time": "11:30",
+      "data": {
+          "TemperaturaA": 50,
+          "TemperaturaB": 50,
+          "TemperaturaC": 50,
+          "TemperaturaObjetoA": 50,
+          "TemperaturaObjetoB": 50,
+          "TemperaturaObjetoC": 50,
+          "Temperatura": 50,
+          "Presion": 50,
+          "Humedad": 50,
+          "Lumen": 50,
+          "Vel.Viento": "20° norte"
+      }
+  },
+  {
+    "_id": "sensorS01:nave01-cultivo001-695e246308103388fcd9cc43790044ed",
+    "_rev": "1-a5f5db5098848badecbe67c86bf22fdf",
+    "nombre_cultivo": "Lechuga",
+    "nombre_sensor": "S02",
+    "year": "2013",
+    "month": "01",
+    "day": "01",
+    "time": "11:15",
+    "data": {
+        "TemperaturaA": 100,
+        "TemperaturaB": 100,
+        "TemperaturaC": 100,
+        "TemperaturaObjetoA": 100,
+        "TemperaturaObjetoB": 100,
+        "TemperaturaObjetoC": 100,
+        "Temperatura": 100,
+        "Presion": 100,
+        "Humedad": 10,
+        "Lumen": 33,
+        "Vel.Viento": "20° norte"
+    }
+  },
+  {
+    "_id": "sensorS01:nave01-cultivo001-695e246308103388fcd9cc43790044ed",
+    "_rev": "1-a5f5db5098848badecbe67c86bf22fdf",
+    "nombre_cultivo": "Lechuga",
+    "nombre_sensor": "S02",
+    "year": "2013",
+    "month": "01",
+    "day": "01",
+    "time": "11:00",
+    "data": {
+        "TemperaturaA": 30,
+        "TemperaturaB": 30,
+        "TemperaturaC": 30,
+        "TemperaturaObjetoA": 100,
+        "TemperaturaObjetoB": 100,
+        "TemperaturaObjetoC": 100,
+        "Temperatura": 100,
+        "Presion": 100,
+        "Humedad": 10,
+        "Lumen": 33,
+        "Vel.Viento": "20° norte"
+    }
+  }
+  ];
 
   data:any[] = [
     [
-      {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 836, date:'2021-01-01', time:'00:00'},
-      {name: 'Peso', value: 3,valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
-      {name: 'Temperatura', value: 100},
-      {name: 'Humedad', value: 10},
-      {name: 'Vel.Viento', value: 33}, 
-      {name: 'Dir.Viento', value: "20° Norte"},],
+      {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 837, date:'2021-01-01', time:'00:00'},
+      {nombre: 'TemperaturaA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Temperatura', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Presion', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Humedad', valor: 10, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Lumen', valor: 33, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Vel.Viento', valor: 20, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},],
     [
       {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 837, date:'2021-01-01', time:'00:00'},
-      {name: 'TemperaturaA', value: 100},
-      {name: 'TemperaturaB', value: 100},
-      {name: 'TemperaturaC', value: 100},
-      {name: 'TemperaturaObjetoA', value: 100},
-      {name: 'TemperaturaObjetoB', value: 100},
-      {name: 'TemperaturaObjetoC', value: 100},
-      {name: 'Temperatura', value: 100},
-      {name: 'Presion', value: 100},
-      {name: 'Humedad', value: 10},
-      {name: 'Lumen', value: 33}, 
-      {name: 'Vel.Viento', value: 20},],
-    [
-      {sample: 838},
-      {name:'Fecha', value: '2021-01-01'},
-      {name:'Hora', value: '00:00'},
-      {nombre_cultivo:"Lechuga",valor_max_grafico:400,valor_min_grafico:300,nombre_sensor:"S02",valor_maximo:500,valor_minimo:0,peso_actual:3,temperatura:21.204,humedad:60.059,intervalo:50},
-      {name: 'Humedad', value: 10},
-      {name: 'Vel.Viento', value: 33},
-      {name: 'Dir.Viento', value: "20° Norte"},],
-    [
-      {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 838, date:'2021-01-01', time:'00:00'},
-      {name: 'Peso', value: 3,valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
-      {name: 'Temperatura', value: 100},
-      {name: 'Humedad', value: 10},
-      {name: 'Vel.Viento', value: 33}, 
-      {name: 'Dir.Viento', value: "20° Norte"},],
-    [
-      {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 839, date:'2021-01-01', time:'00:00'},
-      {name: 'Peso', value: 3,valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
-      {name: 'Temperatura', value: 100},
-      {name: 'Humedad', value: 10},
-      {name: 'Vel.Viento', value: 33}, 
-      {name: 'Dir.Viento', value: "20° Norte"},],
-    [
-      {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 836, date:'2021-01-01', time:'00:00'},
-      {name: 'Peso', value: 3,valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
-      {name: 'Temperatura', value: 100},
-      {name: 'Humedad', value: 10},
-      {name: 'Vel.Viento', value: 33}, 
-      {name: 'Dir.Viento', value: "20° Norte"},]];
+      {nombre: 'TemperaturaA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'TemperaturaObjetoC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Temperatura', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Presion', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Humedad', valor: 10, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Lumen', valor: 33, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+      {nombre: 'Vel.Viento', valor: 20, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},],
+      [
+        {nombre_cultivo:"Lechuga",nombre_sensor:"S02",sample: 837, date:'2021-01-01', time:'00:00'},
+        {nombre: 'TemperaturaA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'TemperaturaB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'TemperaturaC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'TemperaturaObjetoA', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'TemperaturaObjetoB', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'TemperaturaObjetoC', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'Temperatura', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'Presion', valor: 100, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'Humedad', valor: 10, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'Lumen', valor: 33, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},
+        {nombre: 'Vel.Viento', valor: 20, valor_max_grafico:400,valor_min_grafico:300,valor_maximo:500,valor_minimo:0,intervalo:50},],
+    ];
 
   graficas:Grafica[] = [
     {nombre_cultivo:'Tomates',
